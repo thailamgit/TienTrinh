@@ -1,25 +1,20 @@
-const person = {
-  name: "Someone I don't know",
-  theme: {
-    backgroundColor: 'black',
-    color: 'pink'
-  }
+
+function Avatar () {
+  return (
+    <img 
+    className="avatar"
+    src="https://i.imgur.com/1bX5QH6.jpg" 
+    alt="Someone that I don't know" 
+    height={100}
+    width={100}
+    />
+  )
 }
 
-export default function TodoList () {
+export default function Display() {
   return (
-    <div style={person.theme}>
-      <h1>Todos of {person.name}</h1>
-      <img
-        className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
-        alt="Gregorio Y. Zara"
-      />
-      <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
-      </ul>
-    </div>
+    <>
+      <Avatar />
+    </>
   )
 }
