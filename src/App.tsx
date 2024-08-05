@@ -1,41 +1,35 @@
-
-function Avatar ({person, size}: AvatarProp) {
-  return (
-    <img 
-    className="avatar"
-    src={"https://i.imgur.com/" + person.imageID + ".jpg" }
-    alt={person.name}
-    height={size}
-    width={size}
-    
-    />
-  )
-}
-type PersonPerop = {
+type ItemProp = {
   name: string,
-  imageID: string
+  isPacked: boolean
 }
 
-type AvatarProp = {
-  person: PersonPerop
-  size: number
+function Item({ name, isPacked }: ItemProp) {
+  if (isPacked) {
+    return <li className="item">{name} ✔</li>;
+  } else {
+    return <li className="item">{name} </li>;
+  }
+  
 }
 
-export default function Display() {
+export default function PackingList() {
   return (
-    <>
-      <Avatar 
-        person={{name: 'Person1', imageID: 'OKS67lh'} }
-        size={100}
-      />
-      <Avatar 
-        person={{name: 'Person2', imageID: 'YfeOqp2'} }
-        size={80}
-      />
-      <Avatar 
-        person={{name: 'Person3', imageID: '1bX5QH6'} }
-        size={50}
-      />
-    </>
-  )
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
 }
